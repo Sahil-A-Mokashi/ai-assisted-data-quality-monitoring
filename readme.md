@@ -1,9 +1,9 @@
 # Data Quality Monitor
 
-**Module:** B9IS123 — Programming for Information Systems  
-**Student:** Sahil Aslam Mokashi — 20102281  
+**Module:** B9IS123 - Programming for Information Systems  
+**Student:** Sahil Aslam Mokashi - 20102281  
 **Lecturer:** Paul Laird  
-**Dublin Business School — 2025/2026**
+**Dublin Business School - 2025/2026**
 
 ---
 
@@ -38,7 +38,7 @@ No page refresh. All interactions go through REST API calls.
 - Upload CSV datasets with metadata (name, organisation, source system, domain)
 - Automatic data profiling on upload (missing values, duplicates, outliers, invalid emails, schema issues)
 - Quality score calculated from profiling results
-- AI-assisted risk prediction (Low / Medium / High) based on quality score
+- AI assisted risk prediction (Low / Medium / High) based on quality score
 - Email address validation via external API during profiling
 - Full CRUD operations on datasets and reviews
 - Search by name, organisation, source system
@@ -66,9 +66,9 @@ No page refresh. All interactions go through REST API calls.
 
 ## Database Tables
 
-- **dataset** — stores metadata for each uploaded CSV
-- **quality_metrics** — stores profiling results linked to each dataset
-- **review** — stores reviewer comments and status per dataset
+- **dataset** - stores metadata for each uploaded CSV
+- **quality_metrics** - stores profiling results linked to each dataset
+- **review** - stores reviewer comments and status per dataset
 
 ---
 
@@ -95,10 +95,10 @@ No page refresh. All interactions go through REST API calls.
 
 The backend validates all inputs and returns appropriate HTTP status codes:
 
-- `400` — missing required fields, wrong file type, empty file
-- `404` — dataset or resource not found
-- `409` — duplicate dataset name
-- `500` — server error with description
+- `400` - missing required fields, wrong file type, empty file
+- `404` - dataset or resource not found
+- `409` - duplicate dataset name
+- `500` - server error with description
 
 ---
 
@@ -138,7 +138,7 @@ Tests cover:
 - CRUD operations for datasets
 - Quality score calculation
 - API validation (bad input returns 400)
-- Full upload-to-report integration test
+- Full upload to report integration test
 
 ---
 
@@ -177,13 +177,7 @@ data-quality-monitor/
 
 ## Relationship to Research Methods Assignment
 
-My Research Methods CA1 investigates machine learning-based detection of data quality anomalies in cloud data lakes. This programming assignment builds the information system that wraps that research — the frontend, REST API, database, profiling pipeline, and cloud storage that would surround an ML model in a real deployment. The ML model itself is simulated here using a rule-based risk engine, designed to be replaced with a trained model from the research project later.
-
----
-
-## Attributions
-
-See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for all external resources, libraries, and AI assistance used in this project.
+My Research Methods CA1 investigates machine learning based detection of data quality anomalies in cloud data lakes. This programming assignment builds the information system that wraps that research the frontend, REST API, database, profiling pipeline, and cloud storage that would surround an ML model in a real deployment. The ML model itself is simulated here using a rule based risk engine, designed to be replaced with a trained model from the research project later.
 
 ---
 
@@ -191,4 +185,4 @@ See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for all external resources, libraries, an
 
 - **Submission date:** 13 July 2026
 - **GitHub:** https://github.com/Sahil-A-Mokashi/data-quality-monitor
-- **Module:** B9IS123 — Programming for Information Systems
+- **Module:** B9IS123 - Programming for Information Systems
