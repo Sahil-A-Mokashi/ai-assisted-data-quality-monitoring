@@ -141,3 +141,54 @@ Tests cover:
 - Full upload-to-report integration test
 
 ---
+
+
+## Project Structure
+data-quality-monitor/
+├── app.py                  # Flask application entry point
+├── models.py               # SQLAlchemy database models
+├── routes/
+│   ├── datasets.py         # Dataset CRUD endpoints
+│   ├── analysis.py         # Profiling and risk endpoints
+│   └── reports.py          # Dashboard and report endpoints
+├── services/
+│   ├── profiler.py         # Pandas profiling logic
+│   ├── risk_engine.py      # Quality score and risk prediction
+│   ├── gcs_service.py      # Google Cloud Storage integration
+│   └── email_validator.py  # Abstract API email validation
+├── frontend/
+│   ├── index.html          # Dashboard
+│   ├── upload.html         # Upload page
+│   ├── dataset.html        # Dataset detail page
+│   └── js/
+│       ├── dashboard.js
+│       ├── upload.js
+│       └── dataset.js
+├── tests/
+│   ├── test_datasets.py
+│   ├── test_profiler.py
+│   └── test_integration.py
+├── requirements.txt
+├── .env.example
+├── ATTRIBUTIONS.md         # All external resources and AI assistance acknowledged
+└── README.md
+
+---
+
+## Relationship to Research Methods Assignment
+
+My Research Methods CA1 investigates machine learning-based detection of data quality anomalies in cloud data lakes. This programming assignment builds the information system that wraps that research — the frontend, REST API, database, profiling pipeline, and cloud storage that would surround an ML model in a real deployment. The ML model itself is simulated here using a rule-based risk engine, designed to be replaced with a trained model from the research project later.
+
+---
+
+## Attributions
+
+See [ATTRIBUTIONS.md](ATTRIBUTIONS.md) for all external resources, libraries, and AI assistance used in this project.
+
+---
+
+## Submission
+
+- **Submission date:** 13 July 2026
+- **GitHub:** https://github.com/Sahil-A-Mokashi/data-quality-monitor
+- **Module:** B9IS123 — Programming for Information Systems
