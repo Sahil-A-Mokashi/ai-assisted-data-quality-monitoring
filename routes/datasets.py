@@ -5,6 +5,7 @@ import os
 from database import db
 from models import Dataset, QualityMetrics
 from services.profiler import profile_csv
+from services.risk_engine import calculate_risk
 
 
 ALLOWED_EXTENSIONS = {"csv"}
@@ -58,6 +59,7 @@ def create_dataset():
         temp_path = temp_file.name
 
     metrics = profile_csv(temp_path)
+    risk = calculate_risk(metrics)
 
     dataset = Dataset(
         dataset_name=dataset_name,
@@ -67,7 +69,8 @@ def create_dataset():
         uploaded_by=request.form.get("uploaded_by", ""),
         notes=request.form.get("notes", ""),
         file_name=filename,
-
+        quality_score=risk["quality_score"],
+        predicted_risk=risk["risk"],
         total_rows=metrics["total_rows"],
         total_columns=metrics["total_columns"]
     )
@@ -81,7 +84,9 @@ def create_dataset():
         duplicate_rows=metrics["duplicate_rows"],
         null_percentage=metrics["null_percentage"],
         completeness_score=metrics["completeness_score"],
-        consistency_score=metrics["consistency_score"]
+        consistency_score=metrics["consistency_score"],
+        anomaly_probability = risk["anomaly_probability"],
+        anomaly_status = risk["risk"]
     )
 
     db.session.add(metrics_record)
