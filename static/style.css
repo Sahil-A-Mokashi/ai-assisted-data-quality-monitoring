@@ -1,95 +1,24 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
 body{
-    font-family:Arial,sans-serif;
-    background:#f5f5f5;
-    color:#333;
-}
 
-header{
-    background:#2c3e50;
-    color:white;
-    padding:20px;
-}
+background: #482f5c;
 
-header h1{
-    margin-bottom:15px;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-right:20px;
-    font-weight:bold;
-}
-
-main{
-    width:90%;
-    margin:30px auto;
-}
-
-section{
-    background:white;
-    padding:20px;
-    margin-bottom:20px;
-    border-radius:8px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-table th,
-table td{
-    border:1px solid #ddd;
-    padding:10px;
-    text-align:left;
-}
-
-button{
-    padding:10px 20px;
-    cursor:pointer;
 }
 
 .card{
 
-display:inline-block;
+border:none;
 
-width:180px;
-
-padding:20px;
-
-margin:10px;
-
-background:white;
-
-border-radius:8px;
-
-box-shadow:0 0 8px rgba(0,0,0,.15);
-
-text-align:center;
+border-radius:12px;
 
 }
 
-input,
-select{
+.card h2{
 
-padding:10px;
-
-margin-right:10px;
-
-margin-bottom:20px;
+font-weight:bold;
 
 }
 
 table{
-
-margin-top:20px;
 
 background:white;
 
