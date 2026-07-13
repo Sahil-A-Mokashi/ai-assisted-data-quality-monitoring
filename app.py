@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from database import db
 import os
 from models import Dataset
@@ -24,7 +24,7 @@ app.register_blueprint(reports_bp)
 
 @app.route("/")
 def home():
-    return "Data Quality Monitoring System API is running."
+    return render_template("frontend/index.html")
 
 
 # Create database tables (currently none)
