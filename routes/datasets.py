@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import tempfile
 import os
 from database import db
-from models import Dataset
+from models import Dataset, QualityMetrics
 from services.profiler import profile_csv
 
 
@@ -73,6 +73,18 @@ def create_dataset():
     )
 
     db.session.add(dataset)
+    db.session.commit()
+
+    metrics_record = QualityMetrics(
+        dataset_id=dataset.dataset_id,
+        missing_values=metrics["missing_values"],
+        duplicate_rows=metrics["duplicate_rows"],
+        null_percentage=metrics["null_percentage"],
+        completeness_score=metrics["completeness_score"],
+        consistency_score=metrics["consistency_score"]
+    )
+
+    db.session.add(metrics_record)
     db.session.commit()
 
     os.remove(temp_path)
