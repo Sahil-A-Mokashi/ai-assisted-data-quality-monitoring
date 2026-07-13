@@ -85,3 +85,40 @@ The application follows a simple client-server architecture.
               ▼
      Dashboard & Reports
 ```
+
+
+
+## Project Structure
+
+```
+ai-assisted-data-quality-monitoring/
+│
+├── app.py                      # Application entry point
+├── database.py                 # Database configuration
+├── models.py                   # SQLAlchemy models
+├── requirements.txt            # Python dependencies
+│
+├── routes/
+│   ├── auth.py                 # Login and registration
+│   ├── datasets.py             # Dataset APIs
+│   └── reports.py              # Report APIs
+│
+├── services/
+│   ├── ai_service.py           # Machine learning analysis
+│   └── quality_service.py      # Data quality calculations
+│
+├── templates/
+│   ├── index.html
+│   ├── upload.html
+│   ├── login.html
+│   ├── register.html
+│   └── dataset-details.html
+│
+├── static/
+│   ├── style.css
+│   └── script.js
+│
+├── tests/
+│
+└── screenshots/
+```
