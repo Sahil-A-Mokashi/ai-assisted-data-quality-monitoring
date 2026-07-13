@@ -291,3 +291,19 @@ The following interactions were verified:
 - User authentication and session handling
 
 Overall, testing confirmed that the system behaves as expected and that the main workflows operate correctly.
+
+
+## Future Improvements
+
+Although the application meets the current project requirements, there are several enhancements that could be implemented in the future.
+
+- Deploy the application using Docker and automate deployments with GitHub Actions.
+- Replace the SQLite database with Cloud SQL for improved scalability.
+- Store uploaded datasets in cloud storage instead of the local file system.
+- Create a Ml Moel and later Improve the machine learning model by training it on larger and more diverse datasets.
+- Add email verification, password reset and multi-factor authentication.
+- Introduce role-based access control with separate Administrator and Standard User accounts.
+- Generate downloadable PDF reports containing quality metrics and AI analysis.
+- Provide historical quality tracking to compare dataset quality over time.
+- Integrate real-time notifications when high-risk datasets are uploaded.
+- Add interactive dashboards with additional charts and business intelligence visualisations.
