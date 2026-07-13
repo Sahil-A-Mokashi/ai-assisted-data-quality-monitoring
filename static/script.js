@@ -44,7 +44,11 @@ body.innerHTML+=`
 
 <td>${dataset.dataset_id}</td>
 
-<td>${dataset.dataset_name}</td>
+<td>
+    <a href="/dataset/${dataset.dataset_id}">
+        ${dataset.dataset_name}
+    </a>
+</td>
 
 <td>${dataset.organisation}</td>
 

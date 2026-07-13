@@ -33,6 +33,14 @@ def upload():
     return render_template("upload.html")
 
 
+@app.route("/dataset/<int:dataset_id>")
+def dataset_details(dataset_id):
+    return render_template(
+        "dataset-details.html",
+        dataset_id=dataset_id
+    )
+
+
 # Create database tables (currently none)
 with app.app_context():
     db.create_all()
