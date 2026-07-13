@@ -28,10 +28,107 @@
 
         <h2>Dashboard</h2>
 
-        <div id="dashboard-cards">
-            <!-- Dashboard cards added next commit -->
-        </div>
+        <section>
 
+<h2>Dashboard</h2>
+
+<div id="dashboard-cards">
+
+<div class="card">
+
+<h3>Total Datasets</h3>
+
+<p id="total-datasets">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>Low Risk</h3>
+
+<p id="low-risk">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>Medium Risk</h3>
+
+<p id="medium-risk">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>High Risk</h3>
+
+<p id="high-risk">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>Average Quality</h3>
+
+<p id="avg-quality">0%</p>
+
+</div>
+
+</div>
+
+<section>
+
+    <h2>Search & Filter</h2>
+
+    <input
+    type="text"
+    id="search"
+    placeholder="Search datasets..."
+    >
+
+    <select id="risk">
+
+    <option value="">All Risks</option>
+
+    <option>Low</option>
+
+    <option>Medium</option>
+
+    <option>High</option>
+
+    </select>
+
+    <select id="sort">
+
+    <option value="">Sort By</option>
+
+    <option value="dataset_name">Dataset Name</option>
+
+    <option value="organisation">Organisation</option>
+
+    <option value="quality_score">Quality Score</option>
+
+    <option value="upload_date">Upload Date</option>
+
+    </select>
+
+    <select id="order">
+
+    <option value="asc">Ascending</option>
+
+    <option value="desc">Descending</option>
+
+    </select>
+
+    <button id="apply">
+
+    Apply
+
+    </button>
+
+    </section>
+
+    </section>
     </section>
 
     <section>
@@ -40,21 +137,31 @@
 
         <table id="datasets-table">
 
-            <thead>
+            <<thead>
 
                 <tr>
 
-                    <th>Dataset</th>
+                <th>ID</th>
 
-                    <th>Organisation</th>
+                <th>Dataset</th>
 
-                    <th>Risk</th>
+                <th>Organisation</th>
 
-                    <th>Quality Score</th>
+                <th>Rows</th>
+
+                <th>Columns</th>
+
+                <th>Quality</th>
+
+                <th>Risk</th>
 
                 </tr>
 
-            </thead>
+                </thead>
+
+                <tbody id="datasets-body">
+
+                </tbody>
 
             <tbody>
 
