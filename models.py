@@ -15,6 +15,8 @@ class Dataset(db.Model):
 
     domain = db.Column(db.String(100))
 
+    file_name = db.Column(db.String(255))
+
     uploaded_by = db.Column(db.String(100))
 
     upload_date = db.Column(db.DateTime, default=datetime.utcnow)
@@ -38,6 +40,7 @@ class Dataset(db.Model):
             "organisation": self.organisation,
             "source_system": self.source_system,
             "domain": self.domain,
+            "file_name": self.file_name,
             "uploaded_by": self.uploaded_by,
             "upload_date": self.upload_date.isoformat() if self.upload_date else None,
             "total_rows": self.total_rows,
