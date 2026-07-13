@@ -2,6 +2,7 @@ from flask import Flask
 from database import db
 import os
 from models import Dataset
+from routes.datasets import datasets_bp
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 # Initialize SQLAlchemy
 db.init_app(app)
+app.register_blueprint(datasets_bp)
 
 
 @app.route("/")
