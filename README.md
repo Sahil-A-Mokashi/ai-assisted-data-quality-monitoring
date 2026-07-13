@@ -122,3 +122,60 @@ ai-assisted-data-quality-monitoring/
 │
 └── screenshots/
 ```
+
+
+## Installation
+
+### Prerequisites
+
+Before running the project, make sure the following software is installed:
+
+- Python 3.11 or later
+- Git
+- pip (Python package manager)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Sahil-A-Mokashi/ai-assisted-data-quality-monitoring.git
+
+cd ai-assisted-data-quality-monitoring
+```
+
+### Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment.
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the Application
+
+```bash
+python app.py
+```
+
+Once the server starts, open the application in your browser.
+
+```
+http://127.0.0.1:5000
+```
