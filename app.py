@@ -4,10 +4,12 @@ import os
 from models import Dataset
 from routes.datasets import datasets_bp
 from routes.reports import reports_bp
+from routes.auth import auth_bp
 
 app = Flask(
     __name__
 )
+app.secret_key = "data-quality-secret-key"
 
 # Database Configuration
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -22,6 +24,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 app.register_blueprint(datasets_bp)
 app.register_blueprint(reports_bp)
+app.register_blueprint(auth_bp)
 
 
 @app.route("/")
