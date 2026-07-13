@@ -8,6 +8,7 @@ from models import Dataset, QualityMetrics
 from services.profiler import profile_csv
 from services.risk_engine import calculate_risk
 from flask import session
+from flask import redirect
 
 
 ALLOWED_EXTENSIONS = {"csv"}
@@ -186,4 +187,5 @@ def create_dataset():
 
     os.remove(temp_path)
 
-    return jsonify(dataset.to_dict()), 201
+
+    return redirect(f"/dataset/{dataset.dataset_id}")

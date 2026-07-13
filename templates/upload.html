@@ -56,25 +56,42 @@ Login
 
 <main>
 
-<form id="upload-form">
+<form
+    id="upload-form"
+    action="/datasets"
+    method="POST"
+    enctype="multipart/form-data">
 
 <label>Dataset Name</label>
-<input type="text">
+<input
+    type="text"
+    name="dataset_name"
+    required>
 
 <label>Organisation</label>
-<input type="text">
+<input
+    type="text"
+    name="organisation">
 
 <label>Source System</label>
-<input type="text">
+<input
+    type="text"
+    name="source_system">
 
 <label>Domain</label>
-<input type="text">
+<input
+    type="text"
+    name="domain">
 
 <label>Uploaded By</label>
-<input type="text">
+<input
+    type="text"
+    name="uploaded_by">
 
 <label>Notes</label>
-<textarea></textarea>
+<textarea
+    name="notes">
+</textarea>
 
 
 {% if username %}
@@ -127,7 +144,11 @@ Login
 {% endif %}
 
 <label>Select CSV</label>
-<input type="file" accept=".csv">
+<input
+    type="file"
+    name="file"
+    accept=".csv"
+    required>
 
 <button type="submit">
 
