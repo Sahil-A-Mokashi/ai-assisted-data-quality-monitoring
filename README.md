@@ -179,3 +179,15 @@ Once the server starts, open the application in your browser.
 ```
 http://127.0.0.1:5000
 ```
+
+## Using the Application
+
+After launching the application, users can perform the following tasks:
+
+1. Register a new account or log in using an existing account.
+2. Upload a CSV dataset along with metadata such as organisation, source system and domain.
+3. Choose whether the dataset should be public or private.
+4. View uploaded datasets from the dashboard.
+5. Search, filter and sort datasets using the available controls.
+6. Open the dataset report to view quality metrics, AI predictions and interactive charts.
+7. Review recommendations generated from the data quality analysis.
