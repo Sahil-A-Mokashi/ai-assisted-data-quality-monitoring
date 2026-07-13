@@ -1,4 +1,4 @@
-from flask import Flask, render_template,send_from_directory
+from flask import Flask, render_template, send_from_directory, redirect, request
 from database import db
 import os
 from models import Dataset
@@ -6,6 +6,7 @@ from routes.datasets import datasets_bp
 from routes.reports import reports_bp
 from routes.auth import auth_bp
 from flask import session
+from werkzeug.security import generate_password_hash
 
 app = Flask(
     __name__
@@ -53,6 +54,39 @@ def dataset_details(dataset_id):
         dataset_id=dataset_id,
         username=session.get("username")
     )
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+
+    if request.method == "POST":
+
+        username = request.form["username"]
+
+        password = request.form["password"]
+
+        existing = User.query.filter_by(
+            username=username
+        ).first()
+
+        if existing:
+
+            return "Username already exists."
+
+        user = User(
+
+            username=username,
+
+            password_hash=generate_password_hash(password)
+
+        )
+
+        db.session.add(user)
+
+        db.session.commit()
+
+        return redirect("/login")
+
+    return render_template("register.html")
 
 
 # Create database tables (currently none)
