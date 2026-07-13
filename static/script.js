@@ -125,7 +125,17 @@ async function loadDatasetReport(){
 
 const id=document.getElementById("dataset-id").value;
 
-const response=await fetch(`${API}/reports/${id}`);
+const response = await fetch(`${API}/reports/${id}`);
+
+if (response.status === 403) {
+
+    alert("Please log in to view this private dataset.");
+
+    window.location.href = "/login";
+
+    return;
+
+}
 
 const report=await response.json();
 
