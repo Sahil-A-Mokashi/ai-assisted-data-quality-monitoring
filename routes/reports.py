@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify
 from models import Dataset, QualityMetrics
+from flask import session
 
 reports_bp = Blueprint("reports", __name__)
 
@@ -7,6 +8,14 @@ reports_bp = Blueprint("reports", __name__)
 def get_dataset_report(dataset_id):
 
     dataset = Dataset.query.get(dataset_id)
+    username = session.get("username")
+
+    if not dataset.is_public:
+
+        if username != dataset.owner_username:
+            return jsonify({
+                "error": "Access denied."
+            }), 403
 
     if dataset is None:
         return jsonify({"error": "Dataset not found"}), 404
@@ -23,7 +32,16 @@ def get_dataset_report(dataset_id):
 @reports_bp.route("/dashboard", methods=["GET"])
 def dashboard():
 
-    datasets = Dataset.query.all()
+    username = session.get("username")
+
+    if username:
+        datasets = Dataset.query.filter_by(
+            owner_username=username
+        ).all()
+    else:
+        datasets = Dataset.query.filter_by(
+            is_public=True
+        ).all()
 
     total = len(datasets)
 

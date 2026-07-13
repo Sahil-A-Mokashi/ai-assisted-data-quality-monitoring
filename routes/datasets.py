@@ -7,6 +7,8 @@ from sqlalchemy import or_
 from models import Dataset, QualityMetrics
 from services.profiler import profile_csv
 from services.risk_engine import calculate_risk
+from flask import session
+from flask import redirect
 
 
 ALLOWED_EXTENSIONS = {"csv"}
@@ -23,8 +25,19 @@ datasets_bp = Blueprint("datasets", __name__)
 
 @datasets_bp.route("/datasets", methods=["GET"])
 def get_datasets():
+    username = session.get("username")
 
-    query = Dataset.query
+    if username:
+
+        query = Dataset.query.filter_by(
+            owner_username=username
+        )
+
+    else:
+
+        query = Dataset.query.filter_by(
+            is_public=True
+        )
 
     # ----------------------------
     # Search across text fields
@@ -129,12 +142,22 @@ def create_dataset():
     metrics = profile_csv(temp_path)
     risk = calculate_risk(metrics)
 
+    username = session.get("username")
+    if username is None:
+        is_public = True
+    else:
+        visibility = request.form.get("visibility", "public")
+        is_public = visibility == "public"
+
+
     dataset = Dataset(
         dataset_name=dataset_name,
         organisation=organisation,
         source_system=request.form.get("source_system", ""),
         domain=request.form.get("domain", ""),
-        uploaded_by=request.form.get("uploaded_by", ""),
+        uploaded_by=username if username else "Guest",
+        owner_username=username,
+        is_public=is_public,
         notes=request.form.get("notes", ""),
         file_name=filename,
         quality_score=risk["quality_score"],
@@ -162,4 +185,5 @@ def create_dataset():
 
     os.remove(temp_path)
 
-    return jsonify(dataset.to_dict()), 201
+
+    return redirect(f"/dataset/{dataset.dataset_id}")
