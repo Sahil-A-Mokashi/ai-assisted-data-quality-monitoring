@@ -1,11 +1,15 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,send_from_directory
 from database import db
 import os
 from models import Dataset
 from routes.datasets import datasets_bp
 from routes.reports import reports_bp
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder="frontend",
+    static_url_path=""
+)
 
 # Database Configuration
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -24,7 +28,7 @@ app.register_blueprint(reports_bp)
 
 @app.route("/")
 def home():
-    return render_template("frontend/index.html")
+    return send_from_directory("frontend", "index.html")
 
 
 # Create database tables (currently none)
@@ -34,3 +38,5 @@ with app.app_context():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
