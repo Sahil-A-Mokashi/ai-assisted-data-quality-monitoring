@@ -245,3 +245,49 @@ For every uploaded dataset, the system automatically generates a report containi
 - Suggested future improvements
 
 This allows users to quickly understand the quality of their datasets without manually analysing the data.
+
+
+## Testing
+
+Testing was carried out throughout the development process to verify that the main features of the application worked correctly.
+
+### Functional Testing
+
+The following functionality was manually tested:
+
+- User registration
+- User login and logout
+- Dataset upload
+- Public and private dataset visibility
+- Dataset search
+- Dataset filtering
+- Dataset sorting
+- Dataset report generation
+- Dashboard statistics
+- Access control for private datasets
+
+### Unit Testing
+
+Unit tests were created to verify important backend functionality, including:
+
+- Dataset creation
+- Dataset retrieval
+- Data quality calculations
+- Report generation
+- Authentication logic
+
+Tests are available in the **tests/** directory.
+
+### Integration Testing
+
+Integration testing was performed to ensure that the frontend and backend communicate correctly through the REST API.
+
+The following interactions were verified:
+
+- Uploading datasets through the web interface
+- Loading dashboard statistics using Fetch API
+- Displaying dataset reports
+- Retrieving AI analysis results
+- User authentication and session handling
+
+Overall, testing confirmed that the system behaves as expected and that the main workflows operate correctly.
