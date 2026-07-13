@@ -25,7 +25,19 @@ datasets_bp = Blueprint("datasets", __name__)
 
 @datasets_bp.route("/datasets", methods=["GET"])
 def get_datasets():
-    query = Dataset.query
+    username = session.get("username")
+
+    if username:
+
+        query = Dataset.query.filter_by(
+            owner_username=username
+        )
+
+    else:
+
+        query = Dataset.query.filter_by(
+            is_public=True
+        )
 
     username = session.get("username")
 
