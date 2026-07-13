@@ -191,3 +191,18 @@ After launching the application, users can perform the following tasks:
 5. Search, filter and sort datasets using the available controls.
 6. Open the dataset report to view quality metrics, AI predictions and interactive charts.
 7. Review recommendations generated from the data quality analysis.
+
+## REST API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/` | Dashboard page |
+| GET | `/dashboard` | Dashboard statistics |
+| GET | `/datasets` | Retrieve all datasets |
+| POST | `/datasets` | Upload a new dataset |
+| GET | `/reports/<id>` | Retrieve dataset report |
+| GET | `/login` | Login page |
+| POST | `/login` | User login |
+| GET | `/register` | Registration page |
+| POST | `/register` | Create a new user |
+| GET | `/logout` | Log out current user |
