@@ -65,7 +65,19 @@
 
     <section>
 
-<h2 class="mb-4">Dashboard</h2>
+<h2>
+
+{% if username %}
+
+{{ username }}'s Dashboard
+
+{% else %}
+
+Public Dashboard
+
+{% endif %}
+
+</h2>
 
 
 <div id="dashboard-cards">

@@ -20,6 +20,10 @@ class Dataset(db.Model):
 
     uploaded_by = db.Column(db.String(100))
 
+    owner_username = db.Column(db.String(100), nullable=True)
+
+    is_public = db.Column(db.Boolean, default=True)
+
     upload_date = db.Column(db.DateTime, default=datetime.utcnow)
 
     total_rows = db.Column(db.Integer, default=0)

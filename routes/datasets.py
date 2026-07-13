@@ -7,6 +7,7 @@ from sqlalchemy import or_
 from models import Dataset, QualityMetrics
 from services.profiler import profile_csv
 from services.risk_engine import calculate_risk
+from flask import session
 
 
 ALLOWED_EXTENSIONS = {"csv"}
@@ -23,8 +24,21 @@ datasets_bp = Blueprint("datasets", __name__)
 
 @datasets_bp.route("/datasets", methods=["GET"])
 def get_datasets():
-
     query = Dataset.query
+
+    username = session.get("username")
+
+    if username:
+
+        query = query.filter_by(
+            owner_username=username
+        )
+
+    else:
+
+        query = query.filter_by(
+            is_public=True
+        )
 
     # ----------------------------
     # Search across text fields
@@ -129,12 +143,16 @@ def create_dataset():
     metrics = profile_csv(temp_path)
     risk = calculate_risk(metrics)
 
+    username = session.get("username")
+
     dataset = Dataset(
         dataset_name=dataset_name,
         organisation=organisation,
         source_system=request.form.get("source_system", ""),
         domain=request.form.get("domain", ""),
-        uploaded_by=request.form.get("uploaded_by", ""),
+        uploaded_by=username if username else "Guest",
+        owner_username=username,
+        is_public=True,
         notes=request.form.get("notes", ""),
         file_name=filename,
         quality_score=risk["quality_score"],
