@@ -1,12 +1,29 @@
 const API="http://127.0.0.1:5000";
 
-window.onload=()=>{
+window.onload = () => {
 
-loadDashboard();
+    // Dashboard page
+    if (document.getElementById("dashboard-cards")) {
 
-loadDatasets();
+        loadDashboard();
+        loadDatasets();
 
-}
+        const applyButton = document.getElementById("apply");
+
+        if (applyButton) {
+            applyButton.onclick = applyFilters;
+        }
+
+    }
+
+    // Dataset details page
+    if (document.getElementById("dataset-id")) {
+
+        loadDatasetReport();
+
+    }
+
+};
 
 async function loadDashboard(){
 
