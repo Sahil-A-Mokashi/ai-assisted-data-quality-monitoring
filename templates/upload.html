@@ -76,6 +76,56 @@ Login
 <label>Notes</label>
 <textarea></textarea>
 
+
+{% if username %}
+
+<div class="mb-3">
+
+    <label class="form-label">
+
+        Dataset Visibility
+
+    </label>
+
+    <div class="form-check">
+
+        <input
+            class="form-check-input"
+            type="radio"
+            name="visibility"
+            id="public"
+            value="public"
+            checked>
+
+        <label class="form-check-label" for="public">
+
+            Public
+
+        </label>
+
+    </div>
+
+    <div class="form-check">
+
+        <input
+            class="form-check-input"
+            type="radio"
+            name="visibility"
+            id="private"
+            value="private">
+
+        <label class="form-check-label" for="private">
+
+            Private
+
+        </label>
+
+    </div>
+
+</div>
+
+{% endif %}
+
 <label>Select CSV</label>
 <input type="file" accept=".csv">
 

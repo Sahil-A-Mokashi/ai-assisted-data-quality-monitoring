@@ -144,6 +144,12 @@ def create_dataset():
     risk = calculate_risk(metrics)
 
     username = session.get("username")
+    if username is None:
+        is_public = True
+    else:
+        visibility = request.form.get("visibility", "public")
+        is_public = visibility == "public"
+
 
     dataset = Dataset(
         dataset_name=dataset_name,
@@ -152,7 +158,7 @@ def create_dataset():
         domain=request.form.get("domain", ""),
         uploaded_by=username if username else "Guest",
         owner_username=username,
-        is_public=True,
+        is_public=is_public,
         notes=request.form.get("notes", ""),
         file_name=filename,
         quality_score=risk["quality_score"],
