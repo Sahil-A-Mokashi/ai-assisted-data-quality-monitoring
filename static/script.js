@@ -142,7 +142,7 @@ const report=await response.json();
 const dataset=report.dataset;
 
 const metrics=report.metrics;
-
+createCharts(dataset, metrics);
 
 document.getElementById("dataset-info").innerHTML=`
 
@@ -217,4 +217,226 @@ ${metrics.corrected_dataset_path ?? "Not available"}
 `;
 }
 
+function createCharts(dataset, metrics){
 
+    // ----------------------------
+    // Quality Score
+    // ----------------------------
+
+    document.getElementById("quality-score-value").innerHTML =
+        `${dataset.quality_score}%`;
+
+    new Chart(
+
+        document.getElementById("quality-score-chart"),
+
+        {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: ["Quality", "Remaining"],
+
+                datasets: [{
+
+                    data: [
+                        dataset.quality_score,
+                        100 - dataset.quality_score
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: true,
+
+                cutout: "70%",
+
+                plugins: {
+
+                    legend: {
+
+                        position: "bottom"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+
+
+    // ----------------------------
+    // Data Quality Breakdown
+    // ----------------------------
+
+    new Chart(
+
+        document.getElementById("breakdown-chart"),
+
+        {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+
+                    "Valid Rows",
+
+                    "Missing Values",
+
+                    "Duplicate Rows"
+
+                ],
+
+                datasets: [{
+
+                    data: [
+
+                        dataset.total_rows -
+                        metrics.missing_values -
+                        metrics.duplicate_rows,
+
+                        metrics.missing_values,
+
+                        metrics.duplicate_rows
+
+                    ]
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: true,
+
+                cutout: "55%",
+
+                plugins: {
+
+                    legend: {
+
+                        position: "bottom"
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+
+
+    // ----------------------------
+    // Quality Metrics
+    // ----------------------------
+
+    document.getElementById("quality-bars").innerHTML = `
+
+        <label class="fw-bold">Completeness</label>
+
+        <div class="progress mb-3">
+
+            <div class="progress-bar bg-success"
+                 style="width:${metrics.completeness_score}%">
+
+                ${metrics.completeness_score}%
+
+            </div>
+
+        </div>
+
+        <label class="fw-bold">Consistency</label>
+
+        <div class="progress mb-3">
+
+            <div class="progress-bar bg-primary"
+                 style="width:${metrics.consistency_score}%">
+
+                ${metrics.consistency_score}%
+
+            </div>
+
+        </div>
+
+        <label class="fw-bold">Null Percentage</label>
+
+        <div class="progress">
+
+            <div class="progress-bar bg-danger"
+                 style="width:${metrics.null_percentage}%">
+
+                ${metrics.null_percentage}%
+
+            </div>
+
+        </div>
+
+    `;
+
+
+
+    // ----------------------------
+    // AI Risk Assessment
+    // ----------------------------
+
+    let badge = "success";
+
+    if(dataset.predicted_risk === "Medium")
+        badge = "warning";
+
+    if(dataset.predicted_risk === "High")
+        badge = "danger";
+
+    document.getElementById("ai-summary").innerHTML = `
+
+        <h5>Risk Level</h5>
+
+        <span class="badge bg-${badge} fs-6">
+
+            ${dataset.predicted_risk}
+
+        </span>
+
+        <hr>
+
+        <h5>AI Confidence</h5>
+
+        <div class="progress mb-3">
+
+            <div class="progress-bar bg-info"
+                 style="width:${metrics.anomaly_probability}%">
+
+                ${metrics.anomaly_probability}%
+
+            </div>
+
+        </div>
+
+        <h5>Status</h5>
+
+        <span class="badge bg-success fs-6">
+
+            Prediction Complete
+
+        </span>
+
+    `;
+
+}
