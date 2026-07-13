@@ -1,6 +1,7 @@
 from flask import Flask
 from database import db
 import os
+from models import Dataset
 
 app = Flask(__name__)
 
