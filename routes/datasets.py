@@ -4,6 +4,7 @@ import tempfile
 import os
 from database import db
 from models import Dataset
+from services.profiler import profile_csv
 
 
 ALLOWED_EXTENSIONS = {"csv"}
@@ -56,6 +57,8 @@ def create_dataset():
         file.save(temp_file.name)
         temp_path = temp_file.name
 
+    metrics = profile_csv(temp_path)
+
     dataset = Dataset(
         dataset_name=dataset_name,
         organisation=organisation,
@@ -63,7 +66,10 @@ def create_dataset():
         domain=request.form.get("domain", ""),
         uploaded_by=request.form.get("uploaded_by", ""),
         notes=request.form.get("notes", ""),
-        file_name=filename
+        file_name=filename,
+
+        total_rows=metrics["total_rows"],
+        total_columns=metrics["total_columns"]
     )
 
     db.session.add(dataset)
