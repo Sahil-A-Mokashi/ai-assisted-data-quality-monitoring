@@ -43,45 +43,60 @@ document.getElementById("avg-quality").innerText=data.average_quality_score+"%";
 
 }
 
-async function loadDatasets(query=""){
+async function loadDatasets(query = "") {
 
-const response=await fetch(`${API}/datasets${query}`);
+    const response = await fetch(`${API}/datasets${query}`);
 
-const datasets=await response.json();
+    const datasets = await response.json();
 
-const body=document.getElementById("datasets-body");
+    const body = document.getElementById("datasets-body");
 
-body.innerHTML="";
+    body.innerHTML = "";
 
-datasets.forEach(dataset=>{
+    datasets.forEach(dataset => {
 
-body.innerHTML+=`
+        let badge = "success";
 
+        if (dataset.predicted_risk === "Medium")
+            badge = "warning";
+
+        if (dataset.predicted_risk === "High")
+            badge = "danger";
+
+        body.innerHTML += `
 <tr>
+    <td>#${dataset.dataset_id}</td>
 
-<td>${dataset.dataset_id}</td>
+    <td>
+        <a href="/dataset/${dataset.dataset_id}">
+            ${dataset.dataset_name}
+        </a>
+    </td>
 
-<td>
-    <a href="/dataset/${dataset.dataset_id}">
-        ${dataset.dataset_name}
-    </a>
-</td>
+    <td>${dataset.organisation}</td>
 
-<td>${dataset.organisation}</td>
+    <td>${dataset.total_rows}</td>
 
-<td>${dataset.total_rows}</td>
+    <td>${dataset.total_columns}</td>
 
-<td>${dataset.total_columns}</td>
+    <td style="min-width:180px;">
+        <div class="progress">
+            <div class="progress-bar bg-success"
+                 style="width:${dataset.quality_score}%">
+                ${dataset.quality_score}%
+            </div>
+        </div>
+    </td>
 
-<td>${dataset.quality_score}</td>
-
-<td>${dataset.predicted_risk}</td>
+    <td>
+        <span class="badge bg-${badge}">
+            ${dataset.predicted_risk}
+        </span>
+    </td>
 
 </tr>
-
 `;
-
-});
+    });
 
 }
 
@@ -146,7 +161,7 @@ createCharts(dataset, metrics);
 
 document.getElementById("dataset-info").innerHTML=`
 
-<p><strong>ID:</strong> ${dataset.dataset_id}</p>
+<p><strong>ID:</strong> #${dataset.dataset_id}</p>
 
 <p><strong>Name:</strong> ${dataset.dataset_name}</p>
 
