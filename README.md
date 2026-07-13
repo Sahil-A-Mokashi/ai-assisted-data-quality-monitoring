@@ -32,3 +32,20 @@ The system provides a range of features to help users upload, analyse and manage
 - Detailed dataset report with interactive charts and AI-generated quality insights.
 - REST API architecture where the frontend communicates with the backend using JavaScript Fetch API.
 - Responsive interface built with Bootstrap and Chart.js for a clean user experience.
+
+
+## Technology Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Python | Backend programming language |
+| Flask | REST API and web application framework |
+| JavaScript | Dynamic frontend and API communication |
+| HTML5 & CSS3 | User interface |
+| Bootstrap 5 | Responsive layout and styling |
+| Chart.js | Interactive charts and dashboard visualisation |
+| SQLite | Database storage |
+| SQLAlchemy | Object Relational Mapping (ORM) |
+| Scikit-learn | Machine learning model for anomaly detection |
+| Pandas | CSV processing and data analysis |
+| Git & GitHub | Version control and source code management |
