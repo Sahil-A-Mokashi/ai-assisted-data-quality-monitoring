@@ -102,7 +102,7 @@ class QualityMetrics(db.Model):
             "created_at": self.created_at.isoformat()
         }
 
-    class User(db.Model):
+class User(db.Model):
         __tablename__ = "users"
 
         user_id = db.Column(db.Integer, primary_key=True)
