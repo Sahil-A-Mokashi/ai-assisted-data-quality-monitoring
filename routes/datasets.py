@@ -39,20 +39,6 @@ def get_datasets():
             is_public=True
         )
 
-    username = session.get("username")
-
-    if username:
-
-        query = query.filter_by(
-            owner_username=username
-        )
-
-    else:
-
-        query = query.filter_by(
-            is_public=True
-        )
-
     # ----------------------------
     # Search across text fields
     # ----------------------------

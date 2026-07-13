@@ -9,8 +9,6 @@ window.onload = () => {
         loadDashboard();
         loadDatasets();
 
-        const applyButton = document.getElementById("apply");
-
     }
 
     // Dataset details page
