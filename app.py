@@ -6,9 +6,7 @@ from routes.datasets import datasets_bp
 from routes.reports import reports_bp
 
 app = Flask(
-    __name__,
-    static_folder="templates",
-    static_url_path=""
+    __name__
 )
 
 # Database Configuration
@@ -29,6 +27,10 @@ app.register_blueprint(reports_bp)
 @app.route("/")
 def home():
     return render_template("index.html")
+
+@app.route("/upload")
+def upload():
+    return render_template("upload.html")
 
 
 # Create database tables (currently none)
