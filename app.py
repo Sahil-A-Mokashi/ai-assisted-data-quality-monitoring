@@ -7,7 +7,7 @@ from routes.reports import reports_bp
 
 app = Flask(
     __name__,
-    static_folder="frontend",
+    static_folder="templates",
     static_url_path=""
 )
 
@@ -28,7 +28,7 @@ app.register_blueprint(reports_bp)
 
 @app.route("/")
 def home():
-    return send_from_directory("frontend", "index.html")
+    return render_template("index.html")
 
 
 # Create database tables (currently none)
