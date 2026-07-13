@@ -104,8 +104,8 @@ ai-assisted-data-quality-monitoring/
 │   └── reports.py              # Report APIs
 │
 ├── services/
-│   ├── ai_service.py           # Machine learning analysis
-│   └── quality_service.py      # Data quality calculations
+│   ├── risk_engine.py           # Machine learning analysis
+│   └── profiler.py      # Data quality calculations
 │
 ├── templates/
 │   ├── index.html
