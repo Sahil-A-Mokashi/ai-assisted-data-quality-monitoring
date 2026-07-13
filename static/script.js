@@ -128,11 +128,6 @@ if (applyButton) {
 
 }
 
-if(document.getElementById("dataset-id")){
-
-loadDatasetReport();
-
-}
 
 async function loadDatasetReport(){
 
