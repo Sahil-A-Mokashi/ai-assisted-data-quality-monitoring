@@ -9,8 +9,8 @@
 
 <title>Dataset Details</title>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
@@ -30,13 +30,23 @@
 
 </header>
 
+<input
+type="hidden"
+id="dataset-id"
+value="{{ dataset_id }}"
+>
+
 <main>
 
 <section>
 
 <h2>Dataset Information</h2>
 
-<div id="dataset-info"></div>
+<div id="dataset-info">
+
+Loading...
+
+</div>
 
 </section>
 
@@ -44,7 +54,11 @@
 
 <h2>Quality Metrics</h2>
 
-<div id="quality-metrics"></div>
+<div id="quality-metrics">
+
+Loading...
+
+</div>
 
 </section>
 
@@ -52,7 +66,11 @@
 
 <h2>AI Analysis</h2>
 
-<div id="ai-analysis"></div>
+<div id="ai-analysis">
+
+Loading...
+
+</div>
 
 </section>
 
@@ -60,11 +78,17 @@
 
 <h2>Future Improvements</h2>
 
-<div id="future-links"></div>
+<div id="future-links">
+
+Loading...
+
+</div>
 
 </section>
 
 </main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
