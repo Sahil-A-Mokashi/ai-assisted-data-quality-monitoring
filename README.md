@@ -49,3 +49,39 @@ The system provides a range of features to help users upload, analyse and manage
 | Scikit-learn | Machine learning model for anomaly detection |
 | Pandas | CSV processing and data analysis |
 | Git & GitHub | Version control and source code management |
+
+
+
+## System Architecture
+
+The application follows a simple client-server architecture.
+
+- The frontend is built using HTML, CSS, Bootstrap and JavaScript.
+- JavaScript communicates with the backend using the Fetch API, allowing data to be loaded dynamically without refreshing the page.
+- The backend is developed using Flask and exposes REST API endpoints for dataset management, reporting and authentication.
+- Uploaded dataset information is stored in an SQLite database using SQLAlchemy.
+- A machine learning model analyses(currently rule based logic) each uploaded dataset and predicts its overall risk level based on calculated quality metrics.
+- Chart.js is used to display interactive visualisations on both the dashboard and dataset report pages.
+
+### Architecture Workflow
+
+```
+            User
+              │
+              ▼
+     HTML / Bootstrap UI
+              │
+      JavaScript (Fetch API)
+              │
+              ▼
+        Flask REST API
+              │
+     ┌────────┴────────┐
+     │                 │
+     ▼                 ▼
+ SQLite Database   ML Analysis Engine/ Rule based logic
+     │                 │
+     └────────┬────────┘
+              ▼
+     Dashboard & Reports
+```
