@@ -1,4 +1,5 @@
 const API="http://127.0.0.1:5000";
+let dashboardChartsCreated = false;
 
 window.onload = () => {
 
@@ -9,10 +10,6 @@ window.onload = () => {
         loadDatasets();
 
         const applyButton = document.getElementById("apply");
-
-        if (applyButton) {
-            applyButton.onclick = applyFilters;
-        }
 
     }
 
@@ -41,6 +38,7 @@ document.getElementById("high-risk").innerText=data.high_risk;
 
 document.getElementById("avg-quality").innerText=data.average_quality_score+"%";
 
+createDashboardCharts(data);
 }
 
 async function loadDatasets(query = "") {
@@ -100,33 +98,33 @@ async function loadDatasets(query = "") {
 
 }
 
-document.getElementById("apply").onclick=()=>{
+const applyButton = document.getElementById("apply");
 
-const search=document.getElementById("search").value;
+if (applyButton) {
 
-const risk=document.getElementById("risk").value;
+    applyButton.onclick = () => {
 
-const sort=document.getElementById("sort").value;
+        const search = document.getElementById("search").value;
+        const risk = document.getElementById("risk").value;
+        const sort = document.getElementById("sort").value;
+        const order = document.getElementById("order").value;
 
-const order=document.getElementById("order").value;
+        let query = "?";
 
-let query="?";
+        if (search)
+            query += `search=${search}&`;
 
-if(search)
+        if (risk)
+            query += `predicted_risk=${risk}&`;
 
-query+=`search=${search}&`;
+        if (sort)
+            query += `sort=${sort}&`;
 
-if(risk)
+        query += `order=${order}`;
 
-query+=`predicted_risk=${risk}&`;
+        loadDatasets(query);
 
-if(sort)
-
-query+=`sort=${sort}&`;
-
-query+=`order=${order}`;
-
-loadDatasets(query);
+    };
 
 }
 
@@ -453,5 +451,126 @@ function createCharts(dataset, metrics){
         </span>
 
     `;
+
+}
+
+
+
+var riskChart = null;
+var topChart = null;
+
+async function createDashboardCharts(data){
+
+    if(riskChart)
+        riskChart.destroy();
+
+    if(topChart)
+        topChart.destroy();
+
+    // Risk Doughnut
+
+    riskChart = new Chart(
+
+        document.getElementById("risk-distribution-chart"),
+
+        {
+
+            type:"doughnut",
+
+            data:{
+
+                labels:["Low","Medium","High"],
+
+                datasets:[{
+
+                    data:[
+
+                        data.low_risk,
+
+                        data.medium_risk,
+
+                        data.high_risk
+
+                    ]
+
+                }]
+
+            },
+
+            options:{
+
+                maintainAspectRatio:false,
+
+                cutout:"65%"
+
+            }
+
+        }
+
+    );
+
+    // Top 5 Dataset Quality
+
+    const response = await fetch(API + "/datasets");
+
+    const datasets = await response.json();
+
+    datasets.sort(
+
+        (a,b)=>b.quality_score-a.quality_score
+
+    );
+
+    const topFive = datasets.slice(0,5);
+
+    topChart = new Chart(
+
+        document.getElementById("top-quality-chart"),
+
+        {
+
+            type:"bar",
+
+            data:{
+
+                labels:topFive.map(d=>d.dataset_name),
+
+                datasets:[{
+
+                    label:"Quality",
+
+                    data:topFive.map(d=>d.quality_score)
+
+                }]
+
+            },
+
+            options:{
+
+                indexAxis:"y",
+
+                maintainAspectRatio:false,
+
+                scales:{
+
+                    x:{
+
+                        max:100
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    );
+
+    const progress = document.getElementById("avg-quality-progress");
+
+    progress.style.width = data.average_quality_score + "%";
+
+    progress.innerText = data.average_quality_score + "%";
 
 }
