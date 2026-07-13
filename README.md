@@ -206,3 +206,42 @@ After launching the application, users can perform the following tasks:
 | GET | `/register` | Registration page |
 | POST | `/register` | Create a new user |
 | GET | `/logout` | Log out current user |
+
+
+## Machine Learning Workflow
+
+The application includes a simple machine learning workflow that evaluates the quality of uploaded datasets and predicts an overall risk level.
+
+### Data Processing
+
+When a CSV file is uploaded:
+
+- The file is read using the Pandas library.
+- Basic data quality metrics are calculated.
+- Missing values, duplicate rows, total rows and total columns are identified.
+- A quality score is calculated based on these metrics.
+
+### AI Analysis [this will be implemented as part of applied reseach methods module]
+
+The calculated metrics are passed to a trained machine learning model built using Scikit-learn.
+
+The model predicts one of three possible risk levels:
+
+- Low Risk
+- Medium Risk
+- High Risk
+
+The prediction is then stored in the database and displayed throughout the application.
+
+### Report Generation
+
+For every uploaded dataset, the system automatically generates a report containing:
+
+- Overall quality score
+- Data quality breakdown
+- AI predicted risk level
+- Data quality metrics
+- Interactive charts
+- Suggested future improvements
+
+This allows users to quickly understand the quality of their datasets without manually analysing the data.
