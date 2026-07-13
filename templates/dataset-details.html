@@ -20,13 +20,37 @@ href="{{ url_for('static', filename='style.css') }}">
 
 <h1>Dataset Details</h1>
 
-<nav>
+<div class="navbar-nav ms-auto">
 
-<a href="/">Dashboard</a>
+<a class="nav-link active" href="/">Dashboard</a>
 
-<a href="/upload">Upload Dataset</a>
+<a class="nav-link" href="/upload">Upload Dataset</a>
 
-</nav>
+{% if username %}
+
+<span class="navbar-text me-3">
+
+Hello, {{ username }}
+
+</span>
+
+<a class="nav-link" href="/logout">
+
+Logout
+
+</a>
+
+{% else %}
+
+<a class="nav-link" href="/login">
+
+Login
+
+</a>
+
+{% endif %}
+
+</div>
 
 </header>
 

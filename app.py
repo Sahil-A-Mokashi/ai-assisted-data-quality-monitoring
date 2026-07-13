@@ -5,6 +5,7 @@ from models import Dataset
 from routes.datasets import datasets_bp
 from routes.reports import reports_bp
 from routes.auth import auth_bp
+from flask import session
 
 app = Flask(
     __name__
@@ -29,18 +30,28 @@ app.register_blueprint(auth_bp)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+
+    username = session.get("username")
+
+    return render_template(
+        "index.html",
+        username=username
+    )
 
 @app.route("/upload")
 def upload():
-    return render_template("upload.html")
+    return render_template(
+        "upload.html",
+        username=session.get("username")
+    )
 
 
 @app.route("/dataset/<int:dataset_id>")
 def dataset_details(dataset_id):
     return render_template(
         "dataset-details.html",
-        dataset_id=dataset_id
+        dataset_id=dataset_id,
+        username=session.get("username")
     )
 
 
