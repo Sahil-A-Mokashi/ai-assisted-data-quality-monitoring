@@ -307,3 +307,42 @@ Although the application meets the current project requirements, there are sever
 - Provide historical quality tracking to compare dataset quality over time.
 - Integrate real-time notifications when high-risk datasets are uploaded.
 - Add interactive dashboards with additional charts and business intelligence visualisations.
+
+
+## Acknowledgements
+
+The following technologies and resources were used during the development of this project.
+
+### Software and Libraries
+
+- Python
+- Flask
+- SQLAlchemy
+- SQLite
+- JavaScript
+- Bootstrap 5
+- Chart.js
+- Pandas
+- NumPy
+- Scikit-learn
+- Git and GitHub
+
+### Development Tools
+
+- PyCharm
+- Visual Studio Code
+- Google Chrome Developer Tools
+- Google Cloud Platform (GCP)
+
+### AI Assistance
+
+Generative AI tools were used during the development process to assist with:
+
+- Brainstorming ideas
+- Debugging code
+- Improving documentation
+- Explaining programming concepts
+- Refining user interface layouts
+- js and bootstrap content was implemented with the help of ai for syntax, logic flow improvement, simpifying processess
+
+All generated suggestions were reviewed, modified and integrated by the author before being included in the final solution.
