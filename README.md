@@ -1,6 +1,34 @@
 # http://35.189.112.187:5000/
 # Live Deployed URL
 
+# Assignment Cover Sheet
+
+**Student Name:** Sahil Aslam Mokashi
+
+**Student Number:** 20102281
+
+**Programme:** MSc Information Systems with Computing
+
+**Lecturer Name:** Paul Laird
+
+**Module Title:** Programming for Information Systems (B9IS123)
+
+**Assignment Title:** AI-Assisted Data Quality Monitoring System
+
+---
+
+### Student Declaration
+
+By submitting this assignment, I confirm that:
+
+- This assignment is entirely my own work.
+- Any external sources used have been appropriately referenced.
+- I have followed the Generative AI guidance provided in the assignment brief.
+- I understand the College regulations regarding academic integrity.
+- I understand that all submitted work may be checked for similarities with other submissions.
+
+---
+
 
 # AI-Assisted Data Quality Monitoring System
 
@@ -381,4 +409,6 @@ The deployment process consists of the following steps:
 4. Start the Flask application.
 5. Access the application through the virtual machine's public IP address.
 
-Future versions of the project will include automated deployment using GitHub Actions and a production-ready web server.
+Future versions of the project will include automated deployment using GitHub Actions and a production ready web server.
+
+
