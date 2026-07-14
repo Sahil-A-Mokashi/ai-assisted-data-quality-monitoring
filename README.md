@@ -346,3 +346,12 @@ Generative AI tools were used during the development process to assist with:
 - js and bootstrap content was implemented with the help of ai for syntax, logic flow improvement, simpifying processess
 
 All generated suggestions were reviewed, modified and integrated by the author before being included in the final solution.
+
+
+## Conclusion
+
+The AI-Assisted Data Quality Monitoring System demonstrates the development of a modern web-based information system using a client-server architecture.
+
+The project combines data storage, REST APIs, authentication, machine learning and interactive data visualisation to provide an easy-to-use platform for analysing dataset quality.
+
+Throughout the project, emphasis was placed on clean architecture, API-driven communication, responsive user interface design and practical software engineering principles. The completed application satisfies the functional requirements of the assignment while providing a strong foundation for future enhancements and real world deployment.
