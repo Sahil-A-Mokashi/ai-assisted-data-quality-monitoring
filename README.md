@@ -413,4 +413,15 @@ The deployment process consists of the following steps:
 
 Future versions of the project will include automated deployment using GitHub Actions and a production ready web server.
 
+## Project Links
+
+| Component | Description | URL |
+|-----------|-------------|-----|
+| 🌐 Frontend Application | User Interface | http://35.189.112.187 |
+| ⚙️ Backend REST API | Flask API Service | http://35.189.112.187/datasets |
+| 📑 Backend Dataset Reports | Dataset Analysis Interface | http://35.189.112.187/dataset/1 |
+| 📊 Dashboard | Dashboard Interface | http://35.189.112.187 |
+| 📤 Upload Module | Dataset Upload Interface | http://35.189.112.187/upload |
+| 🔐 Authentication | Login & Registration | http://35.189.112.187/login |
+| 💻 Source Code | GitHub Repository | https://github.com/Sahil-A-Mokashi/ai-assisted-data-quality-monitoring |
 
