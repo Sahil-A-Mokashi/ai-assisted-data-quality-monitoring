@@ -1,4 +1,4 @@
-# http://35.189.112.187:5000/
+# http://35.189.112.187
 **Live Deployed URL**
 # AI-Assisted Data Quality Monitoring System
 # Assignment Cover Sheet
