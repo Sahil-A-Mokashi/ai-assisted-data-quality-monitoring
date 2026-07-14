@@ -355,3 +355,30 @@ The AI-Assisted Data Quality Monitoring System demonstrates the development of a
 The project combines data storage, REST APIs, authentication, machine learning and interactive data visualisation to provide an easy-to-use platform for analysing dataset quality.
 
 Throughout the project, emphasis was placed on clean architecture, API-driven communication, responsive user interface design and practical software engineering principles. The completed application satisfies the functional requirements of the assignment while providing a strong foundation for future enhancements and real world deployment.
+
+## Deployment
+
+The application has been successfully deployed on a Google Cloud Platform (GCP) Virtual Machine.
+
+### Deployment Environment
+
+- Platform: Google Cloud Platform (GCP)
+- Compute Service: Compute Engine Virtual Machine
+- Operating System: Ubuntu Linux
+- Backend: Flask
+- Database: SQLite
+- Version Control: GitHub
+
+The application can be accessed through the deployed server using the assigned public IP address.
+
+### Deployment Process
+
+The deployment process consists of the following steps:
+
+1. Clone the GitHub repository onto the virtual machine.
+2. Create and activate a Python virtual environment.
+3. Install all required project dependencies.
+4. Start the Flask application.
+5. Access the application through the virtual machine's public IP address.
+
+Future versions of the project will include automated deployment using GitHub Actions and a production-ready web server.
