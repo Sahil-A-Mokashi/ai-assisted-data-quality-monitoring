@@ -34,7 +34,7 @@ By submitting this assignment, I confirm that:
 
 # AI-Assisted Data Quality Monitoring System
 
-A web-based information system developed using Flask, JavaScript, SQLite and Machine Learning to analyse uploaded CSV datasets, evaluate data quality, detect anomalies, and generate interactive quality reports.
+A web-based information system developed using Flask, JavaScript, SQLite and Rule Based/Machine Learning to analyse uploaded CSV datasets, evaluate data quality, detect anomalies, and generate interactive quality reports.
 
 ## Project Overview
 
@@ -93,28 +93,17 @@ The application follows a simple client-server architecture.
 - A machine learning model analyses(currently rule based logic) each uploaded dataset and predicts its overall risk level based on calculated quality metrics.
 - Chart.js is used to display interactive visualisations on both the dashboard and dataset report pages.
 
-### Architecture Workflow
+## Project Links
 
-```
-            User
-              │
-              ▼
-     HTML / Bootstrap UI
-              │
-      JavaScript (Fetch API)
-              │
-              ▼
-        Flask REST API
-              │
-     ┌────────┴────────┐
-     │                 │
-     ▼                 ▼
- SQLite Database   ML Analysis Engine/ Rule based logic
-     │                 │
-     └────────┬────────┘
-              ▼
-     Dashboard & Reports
-```
+| Component | Description | URL |
+|-----------|-------------|-----|
+| Frontend Application | User Interface | http://35.189.112.187 |
+| Backend REST API | Flask API Service | http://35.189.112.187/datasets |
+| Backend Dataset Reports | Dataset Analysis Interface | http://35.189.112.187/dataset/1 |
+| Dashboard | Dashboard Interface | http://35.189.112.187 |
+| Upload Module | Dataset Upload Interface | http://35.189.112.187/upload |
+| Authentication | Login & Registration | http://35.189.112.187/login |
+| Source Code | GitHub Repository | https://github.com/Sahil-A-Mokashi/ai-assisted-data-quality-monitoring |
 
 
 
@@ -373,9 +362,10 @@ Generative AI tools were used during the development process to assist with:
 - Improving documentation
 - Explaining programming concepts
 - Refining user interface layouts
-- js and bootstrap content was implemented with the help of ai for syntax, logic flow improvement, simpifying processess
+- js and bootstrap content was implemented with the help of ai for syntax, logic flow improvement, simpifying processess. Rest places boiler/generic code was generated, then based upon that code i implemented what i actually wanted to for my project, example ai generates a user module, as i dont need a full fledged user handling, i would see how that was implemented and then based upon that write a smaller one thats follows the pattern.
 
 All generated suggestions were reviewed, modified and integrated by the author before being included in the final solution.
+link - https://claude.ai/share/b5e36da2-8946-4c02-8f7c-4ea44eb088bb
 
 
 ## Conclusion
@@ -411,17 +401,7 @@ The deployment process consists of the following steps:
 4. Start the Flask application.
 5. Access the application through the virtual machine's public IP address.
 
-Future versions of the project will include automated deployment using GitHub Actions and a production ready web server.
 
-## Project Links
 
-| Component | Description | URL |
-|-----------|-------------|-----|
-| 🌐 Frontend Application | User Interface | http://35.189.112.187 |
-| ⚙️ Backend REST API | Flask API Service | http://35.189.112.187/datasets |
-| 📑 Backend Dataset Reports | Dataset Analysis Interface | http://35.189.112.187/dataset/1 |
-| 📊 Dashboard | Dashboard Interface | http://35.189.112.187 |
-| 📤 Upload Module | Dataset Upload Interface | http://35.189.112.187/upload |
-| 🔐 Authentication | Login & Registration | http://35.189.112.187/login |
-| 💻 Source Code | GitHub Repository | https://github.com/Sahil-A-Mokashi/ai-assisted-data-quality-monitoring |
+
 
