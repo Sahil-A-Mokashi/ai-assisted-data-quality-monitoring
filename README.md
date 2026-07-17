@@ -401,6 +401,9 @@ The deployment process consists of the following steps:
 4. Start the Flask application.
 5. Access the application through the virtual machine's public IP address.
 
+### Screenshots
+Screenshots were added in the test folder that show the use of postman for testing all the backend api's once they started working in local machine in development process
+
 
 
 
