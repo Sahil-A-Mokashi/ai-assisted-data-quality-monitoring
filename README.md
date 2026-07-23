@@ -365,7 +365,7 @@ Generative AI tools were used during the development process to assist with:
 - js and bootstrap content was implemented with the help of ai for syntax, logic flow improvement, simpifying processess, Boiler/generic code was generated, then based upon that code i implemented what i actually wanted to for my project, example ai generates a user module, as i dont need a full fledged user handling, i would see how that was implemented and then based upon that write a smaller one thats follows the pattern. similar pattern i then use for a other module by comapring the requirements i have for that against how this was built.
 
 All generated suggestions were reviewed, modified and integrated by the author before being included in the final solution.
-link - https://claude.ai/share/b5e36da2-8946-4c02-8f7c-4ea44eb088bb
+link - https://claude.ai/share/a5cb2330-a8ca-439a-85d7-496c5fb3434f
 
 
 ## Conclusion
